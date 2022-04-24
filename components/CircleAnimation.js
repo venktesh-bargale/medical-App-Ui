@@ -4,7 +4,7 @@ import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters';
 import Iconins from 'react-native-vector-icons/Fontisto';
 const { height, width } = Dimensions.get('window')
-export default function CircleAnimation() {
+export default function CircleAnimation({navigation}) {
   var data = [
     { id: '1', img: require('../assets/DoctorIcon.png'), backColor: '#DCEDF9' },
     { id: '2', img: require('../assets/MedicinIcon.png'), backColor: '#FAF0DB' },
@@ -23,7 +23,7 @@ export default function CircleAnimation() {
     {id:4,date:12,day:'mon',time:'09:30 AM',DrName:'Dr. Mim Akhter',type:'Depression',backColor:'#AE5679',ViewColor:'#9D4C6C',shadowColor:'blue'},
   ]
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:'#FFFFFF'}}>
       <View style={styles.TopView}>
         <View style={styles.topFirstView}>
           <Text>👋 Hello!</Text>
@@ -52,7 +52,11 @@ export default function CircleAnimation() {
           horizontal={true}
           renderItem={({ item, index }) =>
             <View>
-              <TouchableOpacity style={[styles.ServicesView, { backgroundColor: item.backColor }]}>
+              <TouchableOpacity style={[styles.ServicesView, { backgroundColor: item.backColor }]} 
+              onPress ={()=>{
+                navigation.navigate('DoctorsScreen')
+              }}
+               >
                 <Image source={item.img} style={styles.servicesIcons} />
               </TouchableOpacity>
             </View>
