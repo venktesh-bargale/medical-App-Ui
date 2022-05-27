@@ -4,7 +4,7 @@ import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters';
 import Iconins from 'react-native-vector-icons/Fontisto';
 const { height, width } = Dimensions.get('window')
-export default function CircleAnimation({navigation}) {
+export default function CircleAnimation({ navigation }) {
   var data = [
     { id: '1', img: require('../assets/DoctorIcon.png'), backColor: '#DCEDF9' },
     { id: '2', img: require('../assets/MedicinIcon.png'), backColor: '#FAF0DB' },
@@ -16,14 +16,14 @@ export default function CircleAnimation({navigation}) {
     { id: 2, title: 'Get the Best Medical Service ', text: 'Lorem Ipsum is simply dummy text of the printing ', img: require('../assets/doctorImage.png'), backColor: '#FAF0DB' },
     { id: 3, title: 'Get the Best Medical Service ', text: 'Lorem Ipsum is simply dummy text of the printing ', img: require('../assets/doctorImage.png'), backColor: '#D6F6FF' },
   ]
-  var Appointments=[
-    {id:1,date:12,day:'mon',time:'09:30 AM',DrName:'Dr. Mim Akhter',type:'Depression',backColor:'#155A96',ViewColor:'#1C6A96',shadowColor:'white'},
-    {id:2,date:12,day:'mon',time:'09:30 AM',DrName:'Dr. Mim Akhter',type:'Depression',backColor:'#CC901A',ViewColor:'#E09F1F',shadowColor:'red'},
-    {id:3,date:12,day:'mon',time:'09:30 AM',DrName:'Dr. Mim Akhter',type:'Depression',backColor:'#028CB1',ViewColor:'#009DC7',shadowColor:'orange'},
-    {id:4,date:12,day:'mon',time:'09:30 AM',DrName:'Dr. Mim Akhter',type:'Depression',backColor:'#AE5679',ViewColor:'#9D4C6C',shadowColor:'blue'},
+  var Appointments = [
+    { id: 1, date: 12, day: 'mon', time: '09:30 AM', DrName: 'Dr. Mim Akhter', type: 'Depression', backColor: '#155A96', ViewColor: '#1C6A96', shadowColor: 'white' },
+    { id: 2, date: 12, day: 'mon', time: '09:30 AM', DrName: 'Dr. Mim Akhter', type: 'Depression', backColor: '#CC901A', ViewColor: '#E09F1F', shadowColor: 'red' },
+    { id: 3, date: 12, day: 'mon', time: '09:30 AM', DrName: 'Dr. Mim Akhter', type: 'Depression', backColor: '#028CB1', ViewColor: '#009DC7', shadowColor: 'orange' },
+    { id: 4, date: 12, day: 'mon', time: '09:30 AM', DrName: 'Dr. Mim Akhter', type: 'Depression', backColor: '#AE5679', ViewColor: '#9D4C6C', shadowColor: 'blue' },
   ]
   return (
-    <ScrollView style={{backgroundColor:'#FFFFFF'}}>
+    <ScrollView style={{ backgroundColor: '#FFFFFF' }}>
       <View style={styles.TopView}>
         <View style={styles.topFirstView}>
           <Text>👋 Hello!</Text>
@@ -46,17 +46,17 @@ export default function CircleAnimation({navigation}) {
       </View>
       <View style={styles.MainServicesView}>
         <Text style={styles.ServicesText}>Services</Text>
-        { }
+        
         <FlatList
           data={data}
           horizontal={true}
           renderItem={({ item, index }) =>
             <View>
-              <TouchableOpacity style={[styles.ServicesView, { backgroundColor: item.backColor }]} 
-              onPress ={()=>{
-                navigation.navigate('DoctorsScreen')
-              }}
-               >
+              <TouchableOpacity style={[styles.ServicesView, { backgroundColor: item.backColor }]}
+                onPress={() => {
+                  navigation.navigate('DoctorsScreen')
+                }}
+              >
                 <Image source={item.img} style={styles.servicesIcons} />
               </TouchableOpacity>
             </View>
@@ -80,21 +80,21 @@ export default function CircleAnimation({navigation}) {
           } />
       </View>
       <View>
-      <Text style={styles.AppointmentText}>Upcoming Appointments</Text>
-      <FlatList
+        <Text style={styles.AppointmentText}>Upcoming Appointments</Text>
+        <FlatList
           data={Appointments}
           horizontal={true}
           renderItem={({ item, index }) =>
             <View>
               <TouchableOpacity style={[styles.AppointmentView, { backgroundColor: item.ViewColor }]}>
-                <View style={[styles.DayView,{backgroundColor:item.backColor,}]}>
+                <View style={[styles.DayView, { backgroundColor: item.backColor, }]}>
                   <Text style={styles.appointmentDate}>{item.date}</Text>
                   <Text style={styles.appointmentDay}>{item.day}</Text>
                 </View>
                 <View style={styles.appointmentDetailsView}>
-                <Text style={styles.appointmentTime}>{item.time}</Text>
-                <Text style={styles.appointmentDrName}>{item.DrName}</Text>
-                <Text style={styles.appoitmentType}>{item.type}</Text>
+                  <Text style={styles.appointmentTime}>{item.time}</Text>
+                  <Text style={styles.appointmentDrName}>{item.DrName}</Text>
+                  <Text style={styles.appoitmentType}>{item.type}</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -179,7 +179,7 @@ const styles = ScaledSheet.create({
     margin: '10@s',
     fontWeight: '700',
     alignSelf: 'flex-start',
-    color:'#000'
+    color: '#000'
   },
   ServicesView: {
     height: '70@s',
@@ -214,29 +214,29 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     justifyContent: 'center'
   },
-  imageView:{
-    height:'170@s',
-    justifyContent:'flex-end'
+  imageView: {
+    height: '170@s',
+    justifyContent: 'flex-end'
   },
   DoctorImage: {
     height: '150@s',
     width: '120@s',
     resizeMode: 'contain',
   },
-  textView:{
-    width:width*0.50,
-    height:'170@s',
-    justifyContent:'center'
+  textView: {
+    width: width * 0.50,
+    height: '170@s',
+    justifyContent: 'center'
   },
-  AdvertiseTitle:{
-    fontSize:'23@s',
-    fontWeight:'700',
-    color:'#0E1012',
-    marginBottom:'10@s'
+  AdvertiseTitle: {
+    fontSize: '23@s',
+    fontWeight: '700',
+    color: '#0E1012',
+    marginBottom: '10@s'
   },
-  AdvertiseText:{
-    fontWeight:'400',
-    fontSize:'13@s',
+  AdvertiseText: {
+    fontWeight: '400',
+    fontSize: '13@s',
   },
   AppointmentView: {
     height: '130@s',
@@ -245,59 +245,59 @@ const styles = ScaledSheet.create({
     marginLeft: '10@s',
     borderRadius: '20@s',
     justifyContent: 'flex-start',
-    alignItems:'center',
+    alignItems: 'center',
     flexDirection: 'row',
   },
-  DayView:{
-    marginLeft:'20@s',
-    width:'25%',
-    height:'80%',
-    backgroundColor:'#1C6A96',
-    borderRadius:'25@s',
-    alignItems:'center',
-    justifyContent:'center',
+  DayView: {
+    marginLeft: '20@s',
+    width: '25%',
+    height: '80%',
+    backgroundColor: '#1C6A96',
+    borderRadius: '25@s',
+    alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: 'white',
-   
+
     shadowOpacity: 0.9,
     elevation: 5,
   },
-  appointmentDate:{
-    color:'#FFFFFF',
-    fontSize:'22@s',
-    fontWeight:'800'
+  appointmentDate: {
+    color: '#FFFFFF',
+    fontSize: '22@s',
+    fontWeight: '800'
   },
-  appointmentDay:{
-    color:'#FFFFFF',
-    fontSize:'16@s',
-    fontWeight:'600'
+  appointmentDay: {
+    color: '#FFFFFF',
+    fontSize: '16@s',
+    fontWeight: '600'
   },
-  appointmentDetailsView:{
-    marginLeft:'10%',
+  appointmentDetailsView: {
+    marginLeft: '10%',
 
   },
-  appointmentTime:{
-    color:'#FFFFFF',
-    fontSize:'14@s',
-    fontWeight:'400'
+  appointmentTime: {
+    color: '#FFFFFF',
+    fontSize: '14@s',
+    fontWeight: '400'
   },
-  appointmentDrName:{
-    color:'#FFFFFF',
-    fontSize:'19@s',
-    fontWeight:'700',
-    marginTop:'7@s',
-    marginBottom:'7@s'
+  appointmentDrName: {
+    color: '#FFFFFF',
+    fontSize: '19@s',
+    fontWeight: '700',
+    marginTop: '7@s',
+    marginBottom: '7@s'
   },
-  appoitmentType:{
-    color:'#FFFFFF',
-    fontSize:'15@s',
-    fontWeight:'400',
-    opacity:0.5
+  appoitmentType: {
+    color: '#FFFFFF',
+    fontSize: '15@s',
+    fontWeight: '400',
+    opacity: 0.5
   },
-  AppointmentText:{
-    fontSize:'17@s',
-    fontWeight:'700',
-    color:'#000000',
-    marginTop:'15@s',
-    marginLeft:'10@s'
+  AppointmentText: {
+    fontSize: '17@s',
+    fontWeight: '700',
+    color: '#000000',
+    marginTop: '15@s',
+    marginLeft: '10@s'
   }
 })
